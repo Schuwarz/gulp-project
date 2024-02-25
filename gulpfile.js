@@ -9,6 +9,7 @@ const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const imagemin = require('gulp-imagemin')
 const htmlmin = require('gulp-htmlmin')
+const size = require('gulp-size')
 const del = require('del')
 
 const paths = {
@@ -39,6 +40,9 @@ function html() {
   .pipe(htmlmin({
     collapseWhitespace: true
   }))
+  .pipe(size({
+    showFiles: true
+  }))
   .pipe(gulp.dest(paths.html.dest));
 }
 
@@ -57,6 +61,9 @@ function styles() {
     suffix: '.min'
   }))
   .pipe(sourcemaps.write(''))
+  .pipe(size({
+    showFiles: true
+  }))
   .pipe(gulp.dest(paths.styles.dest))
 }
 
@@ -69,6 +76,9 @@ function scripts() {
   .pipe(uglify())
   .pipe(concat('main.min.js'))
   .pipe(sourcemaps.write(''))
+  .pipe(size({
+    showFiles: true
+  }))
   .pipe(gulp.dest(paths.scripts.dest))
 }
 
@@ -76,6 +86,9 @@ function img() {
   return gulp.src(paths.images.src)
   .pipe(imagemin({
     progressive: true
+  }))
+  .pipe(size({
+    showFiles: true
   }))
   .pipe(gulp.dest(paths.images.dest))
 }
