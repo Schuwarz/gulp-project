@@ -1,8 +1,10 @@
 # Простая сборка Gulp
 
-## Структура каталогов для размещения файлов стилей и скриптов:  
->./src/styles/\*\*/\*.less 
+## Структура каталогов для размещения файлов:  
+>./src/styles/\*\*/\*.less  
 >./src/scripts/\*\*/\*.js
+>./src/img
+>./src/\*.html
 
 ## Инструкция:  
 1. Скачать все файлы в любую директорию   
@@ -10,11 +12,20 @@
 3. Выполнить команду: gulp (запуск таска default)
 
 ## Установленные NPM пакеты 
-[gulp](https://www.npmjs.com/package/gulp) Сборщик Gulp  
-[gulp-less](https://www.npmjs.com/package/gulp-less) Компиляция Less файлов  
-[gulp-babel](https://www.npmjs.com/package/gulp-babel) Преобразует Java Script в старый стандарт  
-[gulp-concat](https://www.npmjs.com/package/gulp-concat) Объединение нескольких файлов в один  
-[gulp-uglify](https://www.npmjs.com/package/gulp-uglify) Сжатие и оптимизация Java Script кода  
-[gulp-rename](https://www.npmjs.com/package/gulp-rename) Переименовывает файлы  
-[gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) Минификация и оптимизация CSS файлов   
-[del](https://www.npmjs.com/package/del) Удаление каталогов и файлов  
+[gulp] Сборщик Gulp  
+[gulp-less] Компиляция Less файлов  
+[gulp-babel] Преобразует Java Script в старый стандарт  
+[@babel/core]
+[@babel/preset-env] 
+[gulp-concat] Объединение нескольких файлов в один  
+[gulp-uglify] Сжатие и оптимизация Java Script кода  
+[gulp-rename] Переименовывает файлы  
+[gulp-clean-css] Сжатие CSS файлов  
+[gulp-htmlmin] Сжатие HTML файлов
+[gulp-imagemin] Сжатие картинок
+[gulp-autoprefixer]
+[gulp-newer]
+[gulp-size] Видеть размер файлов при компиляции
+[gulp-sourcemaps] 
+[browser-sync] Лайв сервер
+[del] Удаление каталогов и файлов  
