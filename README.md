@@ -1,9 +1,9 @@
 # Простая сборка Gulp
 
 ## Структура каталогов для размещения файлов:  
->./src/styles/\*\*/\*.less  
->./src/scripts/\*\*/\*.js
->./src/img
+>./src/styles/\*\*/\*.scss  
+>./src/scripts/\*\*/\*.js  
+>./src/img  
 >./src/\*.html
 
 ## Инструкция:  
@@ -13,7 +13,8 @@
 
 ## Установленные NPM пакеты 
 [gulp] Сборщик Gulp  
-[gulp-less] Компиляция Less файлов  
+[gulp-sass] Компиляция Sass и Scss файлов  
+[sass]
 [gulp-babel] Преобразует Java Script в старый стандарт  
 [@babel/core]
 [@babel/preset-env] 
@@ -25,7 +26,6 @@
 [gulp-imagemin] Сжатие картинок
 [gulp-autoprefixer]
 [gulp-newer]
-[gulp-size] Видеть размер файлов при компиляции
 [gulp-sourcemaps] 
 [browser-sync] Лайв сервер
 [del] Удаление каталогов и файлов  

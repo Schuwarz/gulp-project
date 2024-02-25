@@ -1,5 +1,5 @@
 const gulp = require('gulp')
-const less = require('gulp-less')
+const sass = require('gulp-sass')(require('sass'))
 const rename = require('gulp-rename')
 const cleanCSS = require('gulp-clean-css')
 const babel = require('gulp-babel')
@@ -9,7 +9,6 @@ const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const imagemin = require('gulp-imagemin')
 const htmlmin = require('gulp-htmlmin')
-const size = require('gulp-size')
 const newer = require('gulp-newer')
 const browsersync = require('browser-sync')
 const del = require('del')
@@ -20,7 +19,7 @@ const paths = {
     dest: 'dist/'
   },
   styles: {
-    src: 'src/styles/**/*.less',
+    src: ['src/styles/**/*.sass', 'src/styles/**/*.scss'],
     dest: 'dist/css/'
   },
   scripts: {
@@ -42,9 +41,6 @@ function html() {
   .pipe(htmlmin({
     collapseWhitespace: true
   }))
-  .pipe(size({
-    showFiles: true
-  }))
   .pipe(gulp.dest(paths.html.dest))
   .pipe(browsersync.stream())
 }
@@ -52,7 +48,7 @@ function html() {
 function styles() {
   return gulp.src(paths.styles.src)
   .pipe(sourcemaps.init())
-  .pipe(less())
+  .pipe(sass().on('error',sass.logError))
   .pipe(autoprefixer({
     cascade: false
   }))
@@ -64,9 +60,6 @@ function styles() {
     suffix: '.min'
   }))
   .pipe(sourcemaps.write(''))
-  .pipe(size({
-    showFiles: true
-  }))
   .pipe(gulp.dest(paths.styles.dest))
   .pipe(browsersync.stream())
 }
@@ -80,9 +73,6 @@ function scripts() {
   .pipe(uglify())
   .pipe(concat('main.min.js'))
   .pipe(sourcemaps.write(''))
-  .pipe(size({
-    showFiles: true
-  }))
   .pipe(gulp.dest(paths.scripts.dest))
   .pipe(browsersync.stream())
 }
@@ -92,9 +82,6 @@ function img() {
   .pipe(newer(paths.images.dest))
   .pipe(imagemin({
     progressive: true
-  }))
-  .pipe(size({
-    showFiles: true
   }))
   .pipe(gulp.dest(paths.images.dest))
 }
